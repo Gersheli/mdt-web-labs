@@ -1,0 +1,47 @@
+{% extends "shop/base.html" %}
+{% load static %}
+{% block title %}
+{% if genre %}{{ genre.name }}{% else %}Ремонт одежды и обуви{% endif %}
+{% endblock %}
+{% block content %}
+<div id="sidebar">
+    <h3>Вид услуги</h3>
+    <ul>
+        <li {% if not genre %}class="selected"{% endif %}>
+            <a href="{% url 'shop:usluga_list' %}">All</a>
+        </li>
+        {% for c in genres %}
+        <li {% if genre.name == c.name %}class="selected" {% endif %}>
+            <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+<div id="main" class="usluga-list">
+    <h1>{% if genre %}{{ genre.name }}{% else %}Услуги{% endif %}
+        {% if user.is_staff %}
+        <a href="/create/">Create</a>
+        {% endif %}
+        {%if user.is_superuser%}
+        <a href="/statistic/">Stats</a>
+        {%endif%}
+        <form action="{{ request.get_full_path }}" method="get">
+            <button type="submit" name="sort" value="ascending">Отсортировать по возрастанию цены</button>
+            <button type="submit" name="sort" value="descending">Отсортировать по убыванию цены</button>
+            <button type="submit" name="sort" value="descendingcount">Отсортировать по возрастанию продаж</button>
+            <button type="submit" name="sort" value="ascendingcount">Отсортировать по убыванию продаж</button>
+        </form>
+    </h1>
+    {% for usluga in uslugas %}
+    <div class="item">
+        <a href="{{ usluga.get_absolute_url }}">
+            <img src="{% if usluga.image %}{{ usluga.image.url }}{%else %}{% static 'img/no_image.png' %}{% endif %}">
+        </a>
+        <a href="{{ usluga.get_absolute_url }}">{{ usluga.title }}</a>
+        <br>
+        {{ usluga.cost }}
+    </div>
+
+    {% endfor %}
+</div>
+{% endblock %}

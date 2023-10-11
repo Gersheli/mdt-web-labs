@@ -1,0 +1,26 @@
+{% extends "shop/base.html" %}
+
+{% block content %}
+
+<section>
+    <div class="news__list">
+        {% for post in news_list %}
+        <article class="news__item">
+            <h2 class="news__title">
+                {{ post.title }}
+            </h2>
+            <p class="news__short_description">
+                {{ post.short_description }}
+            </p>
+            <img src="{{ post.image.url }}", alt="post_image">
+            <br>
+            <button type="button" class="news-item__button">
+                ЧИТАТЬ ДАЛЕЕ
+            </button>
+            <hr>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}

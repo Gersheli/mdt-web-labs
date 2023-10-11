@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <title>{% block title %}Ремонт одежды и обуви{% endblock %}</title>
+    <link rel="shortcut icon" href="../media/static/ico.png"/>
+</head>
+
+<body>
+<div id="header">
+    <a href="/" class="logo">Ремонт одежды и обуви</a>
+    <a href="/news/">Новости</a>
+    <a href="/about/">О компании</a>
+    <a href="/policy/">Политика конфиденциальности</a>
+    <a href="/vacancies/">Вакансии</a>
+    <a href="/coupons/">Промокоды</a>
+    <a href="/faq/">FAQ</a>
+    <a href="/reviews/">Отзывы</a>
+    <p>Текущая дата <span id='date'></span>.</p>
+    <p>Текущее время <span id='time'></span></p>
+    <p>Текущая временная зона <span id='zone'></span></p>
+</div>
+
+<script>
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    let mm = today.getMonth() + 1; // Months start at 0!
+    let dd = today.getDate();
+    let h = today.getHours();
+    if (h < 10)
+        h = '0' + h;
+    let min = today.getMinutes();
+    if (min < 10)
+        min = '0' + min;
+    let sec = today.getSeconds();
+    if (sec < 10)
+        sec = '0' + sec;
+
+    if (dd < 10) dd = '0' + dd;
+    if (mm < 10) mm = '0' + mm;
+
+    let formattedToday = dd + '/' + mm + '/' + yyyy;
+    let time = h + ":" + min + ":" + sec;
+    let tz = -(new Date().getTimezoneOffset() / 60);
+    if (tz > 0) {
+        tz = "+" + tz;
+    }
+    tz = "UTC" + tz;
+    document.getElementById('date').innerHTML = formattedToday;
+    document.getElementById('time').innerHTML = time;
+    document.getElementById('zone').innerHTML = tz;
+</script>
+
+</div>
+<div id="subheader">
+    <div class="cart">
+        {% if user.is_authenticated %}
+            {% with total_items=cart|length %}
+                {% if cart|length > 0 %}
+                    Your cart:
+                    <a href="{% url 'cart:cart_detail' %}">
+                        {{ total_items }} item{{ total_items|pluralize }},
+                        ${{ cart.get_total_price }}
+                    </a>
+                {% else %}
+                    Your cart is empty.
+                {% endif %}
+            {% endwith %}
+        {% endif %}
+        {% if user.is_authenticated %}
+            |{{ user.username }}|
+            <a href="{% url 'login:logout' %}">Выйти</a>
+        {% else %}
+            <a href="{% url 'login:login' %}">Войти</a>
+            <a href="{% url 'login:register' %}">Регистрация</a>
+        {% endif %}
+    </div>
+</div>
+
+<div id="content">
+    {% block content %}
+    {% endblock %}
+</div>
+
+<div itemscope>
+  <span itemprop="name">Название продукта</span> <br/>
+  <img itemprop="image" src="product.jpg" alt="Изображение продукта"> <br/>
+  <span itemprop="description">Описание продукта</span> <br/>
+</div>
+
+<footer>
+    <p>&copy; 2006 Стильный Ремонт</p>
+</footer>
+</body>
+
+</html>

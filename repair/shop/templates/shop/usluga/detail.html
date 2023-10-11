@@ -1,0 +1,33 @@
+{% extends "shop/base.html" %}
+{% block title %}
+{{ usluga.title }}
+{% endblock %}
+{% block content %}
+<div class="usluga-detail">
+    <img src="{% if usluga.image %}{{ usluga.image.url }}{% else %}
+    {% endif %}">
+    <h1>{{ usluga.title }}</h1>
+    <h2>
+        <a href="{{ usluga.genre.get_absolute_url }}">{{usluga.genre }}</a>
+    </h2>
+    <p class="cost">{{ usluga.cost }}</p>
+    {%if user.is_authenticated%}
+    <form action="{% url 'cart:cart_add' usluga.id %}" method="post">
+        {{ cart_usluga_form }}
+        {% csrf_token %}
+        <input type="submit" value="Add to cart">
+    </form>
+    {%endif%}
+    
+    {{ usluga.summary|linebreaks }}
+    {%if user.is_staff%}
+    <td><a href="edit/{{usluga.id}}/">Edit</a> | <a href="delete/{{usluga.id}}/">Remove</a></td>
+    {%endif%}
+    <div class="bottom-right">
+        <p>{{ joke }}</p>
+    </div>
+    
+
+    
+</div>
+{% endblock %}

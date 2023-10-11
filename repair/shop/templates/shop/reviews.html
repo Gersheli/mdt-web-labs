@@ -1,0 +1,17 @@
+{% extends "shop/base.html" %}
+
+{% block content %}
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Отправить</button>
+</form>
+
+<ul>
+    {% for review in reviews %}
+        <li> {{ review.user }} : {{ review.content }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
