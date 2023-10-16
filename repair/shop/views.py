@@ -116,7 +116,7 @@ def review(request):
             review = form.save(commit=False)
             review.user = request.user
             review.save()
-            return redirect('shop/reviews')
+            return redirect('')
     else:
         form = ReviewForm()
 
