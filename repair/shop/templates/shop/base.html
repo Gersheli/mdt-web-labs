@@ -1,11 +1,15 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8"/>
-    <title>{% block title %}Ремонт одежды и обуви{% endblock %}</title>
+    <title>{% block title %}Clothes repair{% endblock %}</title>
     <link rel="shortcut icon" href="../media/static/ico.png"/>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/faq.css' %}">
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
 </head>
 
 <body>
@@ -53,7 +57,6 @@
     document.getElementById('zone').innerHTML = tz;
 </script>
 
-</div>
 <div id="subheader">
     <div class="cart">
         {% if user.is_authenticated %}
@@ -82,12 +85,6 @@
 <div id="content">
     {% block content %}
     {% endblock %}
-</div>
-
-<div itemscope>
-  <span itemprop="name">Название продукта</span> <br/>
-  <img itemprop="image" src="product.jpg" alt="Изображение продукта"> <br/>
-  <span itemprop="description">Описание продукта</span> <br/>
 </div>
 
 <footer>

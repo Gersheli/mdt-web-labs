@@ -2,74 +2,142 @@
 
 {% block content %}
 
-    <header>
-        <img src="../media/static/ico.png" alt="Логотип Стильный Ремонт">
-        <h1>Стильный Ремонт</h1>
-    </header>
-
-    <!-- Информация о компании -->
-    <section id="about">
-        <h2>О компании</h2>
-        <p>Компания "Стильный Ремонт" - это место, где ваша одежда и обувь находят вторую жизнь. Мы специализируемся на
-            качественном ремонте обуви и одежды любых видов и брендов.</p>
-        <abbr title="Компания Стильный Ремонт">КСР</abbr>
-        <dfn title="apple">apple</dfn>
-        <q cite="http://en.wikipedia.org/wiki/Apple">The apple is
-            the pomaceous fruit of the apple tree.</q>
+    <section class="info__section">
+        <div class="container">
+            <h1 class="info__title">О нас</h1>
+            <p class="text-fragment capitalized-text">
+                <dfn title="Clothes repair">Clothes repair</dfn> - some definition lorem ipsum. <br>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum.
+            </p>
+        </div>
     </section>
 
-    <!-- Видео -->
-    <section id="video">
-        <h2>Видео</h2>
-        <!-- Пример встраивания видео -->
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/UMVyuN7KoD4?si=kUMc19454BWQOZoL"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen>
-        </iframe>
+    <section class="video__section">
+        <div class="container">
+            <h1 class="video__title">Company Video</h1>
+            <iframe width="800" height="600" src="https://www.youtube.com/embed/enH2igVo55U"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+            </iframe>
+        </div>
     </section>
 
-    <!-- История по годам -->
-    <section id="history">
-        <h2>История компании</h2>
-        <ul>
-            <li>Год основания: 2005 - Начало работы мастерской</li>
-            <li>2010 - Расширение услуг и открытие нового филиала</li>
-            <li>2015 - Признание как лучшей мастерской по ремонту обуви</li>
-            <li>2020 - Запуск онлайн-заказов и доставки</li>
-        </ul>
+    <section class="logo__section">
+        <div class="container">
+            <h1 class="logo__title">Logo</h1>
+            <div class="logo-img__wrapper">
+                <img src="../media/static/ico.png" alt="logo">
+            </div>
+        </div>
     </section>
 
-    <!-- Реквизиты -->
-    <section id="contacts">
-        <h2>Контактная информация</h2>
-        <address>
-            <p>Адрес: Город, Улица, Дом</p>
-            <p>Телефон: +7 (123) 456-78-90</p>
-            <p>Email: info@stylishrepair.com</p>
-        </address>
+    <section class="audio__section">
+        <div class="container">
+            <h1 class="audio__title">Soundtrack</h1>
+            <audio controls>
+                <source src="../../../media/Wag The Dog.mp3" type="audio/mpeg"/>
+                <p>
+                    Ваш браузер не поддерживает HTML5 аудио. Вот взамен
+                    <a href="../../../media/Wag The Dog.mp3">ссылка на аудио</a>
+                </p>
+            </audio>
+        </div>
     </section>
 
-    <!-- Сертификат -->
-    <section id="certificate">
-        <h2>Сертификат</h2>
-        <p>Мы гордимся тем, что получили сертификат качества, подтверждающий нашу профессиональность и высокий стандарт
-            обслуживания. Смотрите сертификат:</p>
-        <pre>
-Сертификат Качества
+    <section class="history__section">
+        <div class="container">
+            <h1 class="history__title">Company History</h1>
+            <ul class="history__list">
+                <li class="history__item">
+                    <h2 class="history-item__title">2009</h2>
+                    <p class="text-fragment">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                        tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </li>
 
-Настоящим удостоверяется, что компания "Стильный Ремонт" успешно прошла процедуру аудита и соответствует высоким стандартам качества в области ремонта обуви и одежды.
+                <li class="history__item">
+                    <h2 class="history-item__title">2011</h2>
+                    <p class="text-fragment">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                        tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </li>
 
-Компания "Стильный Ремонт" признана одной из лучших мастерских в данной отрасли благодаря:
+                <li class="history__item">
+                    <h2 class="history-item__title">2015</h2>
+                    <p class="text-fragment">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                        tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </li>
 
-- Профессиональным мастерам, обладающим богатым опытом и знаниями в ремонте обуви и одежды.
-- Высококачественным материалам и современному оборудованию.
-- Ответственному отношению к клиентам и выполнению заказов в срок.
+                <li class="history__item">
+                    <h2 class="history-item__title">2020</h2>
+                    <p class="text-fragment">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                        tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </li>
+            </ul>
+        </div>
+    </section>
 
-Этот сертификат подтверждает нашу преданность качеству и уверенность в том, что каждая вещь, доверенная нам для ремонта, будет возвращена вам в отличном состоянии.
+    <section class="certificate__section">
+        <div class="container">
+            <div class="certificate-container">
+                <div class="certificate-border"></div>
+                <h1 class="certificate-title">Сертификат Clothes repair</h1>
+                <p class="certificate-text">Сертификат подтверждает, что данная компания предоставляет услуги
+                    грузоперевозок на высоком уровне, соблюдает все стандарты и нормы, связанные с безопасностью и
+                    качеством предоставляемых услуг.
+                </p>
 
-Сертификат действителен до 31 декабря 2077 года.
-    </pre>
+                <div class="certificate-confirmation">
+                    <h2>Подтверждение Сертификации</h2>
+                    <p>Настоящим подтверждаем, что компания "Clothes repair" успешно прошла все необходимые процедуры и
+                        требования, для получения данного Сертификата.
+                    </p>
+                </div>
+
+                <div class="certificate-description">
+                    <h2>Описание Сертификата</h2>
+                    <ul>
+                        <li>Качество предоставляемых услуг грузоперевозок</li>
+                        <li>Соблюдение стандартов безопасности</li>
+                        <li>Эффективность управления грузовыми операциями</li>
+                    </ul>
+                </div>
+
+                <div class="certificate-dates">
+                    <p>Дата Выдачи</p>
+                    <p>14 сентября 2023 года</p>
+                    <p>Срок Действия</p>
+                    <p>14 сентября 2026 года</p>
+                </div>
+
+                <div class="certificate-signature">
+                    <p>Подпись и печать уполномоченного лица</p>
+                    <div>
+                        <p>Джон Доу</p>
+                        <p>Директор по сертификации</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
 {% endblock %}
