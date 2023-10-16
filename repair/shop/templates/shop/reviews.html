@@ -1,19 +1,5 @@
 {% extends "shop/base.html" %}
 
-{#{% block content %}#}
-{#    <form method="post">#}
-{#        {% csrf_token %}#}
-{#        {{ form.as_p }}#}
-{#        <button type="submit">Отправить</button>#}
-{#    </form>#}
-{##}
-{#    <ul>#}
-{#        {% for review in reviews %}#}
-{#            <li> {{ review.user }} : {{ review.content }}</li>#}
-{#        {% endfor %}#}
-{#    </ul>#}
-{#{% endblock %}#}
-
 {% block content %}
     <section class="reviews__section">
         <div class="container">
@@ -25,17 +11,18 @@
                         <p class="word-break">{{ review.content }}</p>
                         <p class="review__date">Дата: {{ review.created_at }}</p>
                     </article>
-                    <br/>
                 {% empty %}
                     <p>Нет отзывов.</p>
                 {% endfor %}
             </div>
 
-            <form method="post">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit">Отправить</button>
-            </form>
+            {% if current_user.is_authenticated %}
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Отправить</button>
+                </form>
+            {% endif %}
         </div>
     </section>
 {% endblock %}

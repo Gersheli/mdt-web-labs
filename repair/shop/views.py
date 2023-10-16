@@ -116,12 +116,13 @@ def review(request):
             review = form.save(commit=False)
             review.user = request.user
             review.save()
-            return redirect('')
+            return redirect('shop/reviews.html')
     else:
         form = ReviewForm()
 
     reviews = Review.objects.all()
-    return render(request, 'shop/reviews.html', {'form': form, 'reviews': reviews})
+    current_user = request.user
+    return render(request, 'shop/reviews.html', {'form': form, 'reviews': reviews, 'current_user': current_user})
 
 
 def news(request):
