@@ -14,52 +14,122 @@
     <link rel="stylesheet" href="{% static 'css/header.css' %}">
     <link rel="stylesheet" href="{% static 'css/news.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=Roboto:ital,wght@0,400;0,500;0,700;1,300&display=swap"
+          rel="stylesheet">
 </head>
 
 <body>
-<div id="header">
-    <a href="/" class="logo">Ремонт одежды и обуви</a>
-    <a href="/news/">Новости</a>
-    <a href="/about/">О компании</a>
-    <a href="/policy/">Политика конфиденциальности</a>
-    <a href="/vacancies/">Вакансии</a>
-    <a href="/coupons/">Промокоды</a>
-    <a href="/faq/">FAQ</a>
-    <a href="/reviews/">Отзывы</a>
-    <p>Текущая дата <span id='date'></span>.</p>
-    <p>Текущее время <span id='time'></span></p>
-    <p>Текущая временная зона <span id='zone'></span></p>
+<div class="wrapper">
+    <header class="header">
+        <a href="/" class="logo">Clothes repair</a>
+
+        <nav class="navbar">
+            <ul class="navbar-menu">
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/coupons">Coupons</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/faq">FAQ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/news">News</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/policy">Policy</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/reviews">Reviews</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/vacancies">Vacancies</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
 </div>
 
-<script>
-    const today = new Date();
-    const yyyy = today.getFullYear();
-    let mm = today.getMonth() + 1; // Months start at 0!
-    let dd = today.getDate();
-    let h = today.getHours();
-    if (h < 10)
-        h = '0' + h;
-    let min = today.getMinutes();
-    if (min < 10)
-        min = '0' + min;
-    let sec = today.getSeconds();
-    if (sec < 10)
-        sec = '0' + sec;
-
-    if (dd < 10) dd = '0' + dd;
-    if (mm < 10) mm = '0' + mm;
-
-    let formattedToday = dd + '/' + mm + '/' + yyyy;
-    let time = h + ":" + min + ":" + sec;
-    let tz = -(new Date().getTimezoneOffset() / 60);
-    if (tz > 0) {
-        tz = "+" + tz;
-    }
-    tz = "UTC" + tz;
-    document.getElementById('date').innerHTML = formattedToday;
-    document.getElementById('time').innerHTML = time;
-    document.getElementById('zone').innerHTML = tz;
-</script>
+{#<script>#}
+{#    const today = new Date();#}
+{#    const yyyy = today.getFullYear();#}
+{#    let mm = today.getMonth() + 1; // Months start at 0!#}
+{#    let dd = today.getDate();#}
+{#    let h = today.getHours();#}
+{#    if (h < 10)#}
+{#        h = '0' + h;#}
+{#    let min = today.getMinutes();#}
+{#    if (min < 10)#}
+{#        min = '0' + min;#}
+{#    let sec = today.getSeconds();#}
+{#    if (sec < 10)#}
+{#        sec = '0' + sec;#}
+{##}
+{#    if (dd < 10) dd = '0' + dd;#}
+{#    if (mm < 10) mm = '0' + mm;#}
+{##}
+{#    let formattedToday = dd + '/' + mm + '/' + yyyy;#}
+{#    let time = h + ":" + min + ":" + sec;#}
+{#    let tz = -(new Date().getTimezoneOffset() / 60);#}
+{#    if (tz > 0) {#}
+{#        tz = "+" + tz;#}
+{#    }#}
+{#    tz = "UTC" + tz;#}
+{#    document.getElementById('date').innerHTML = formattedToday;#}
+{#    document.getElementById('time').innerHTML = time;#}
+{#    document.getElementById('zone').innerHTML = tz;#}
+{##}
+{##}
+{#    function toggleUserInfo() {#}
+{#        var userInfo = document.getElementById('userInfo');#}
+{#        userInfo.style.display = userInfo.style.display === 'block' ? 'none' : 'block';#}
+{#    }#}
+{##}
+{#    let menuBtn = document.querySelector('.user-toggle');#}
+{#    let menu = document.querySelector('.user-info__list');#}
+{#    let burgerMenu = document.querySelector('#burger-menu');#}
+{#    menuBtn.addEventListener('click', function () {#}
+{#        menu.classList.toggle('active');#}
+{#        menuBtn.classList.toggle('active');#}
+{#        burgerMenu.classList.toggle('active');#}
+{#    })#}
+{##}
+{##}
+{#    // Получаем ссылки на кнопку открытия модального окна и само модальное окно#}
+{#    const openModalButton = document.getElementById('openModalBtn');#}
+{#    const modal = document.getElementById('exampleModal');#}
+{#    const closeModalButton = document.getElementById('btn-close-modal');#}
+{##}
+{#    // Функция открытия модального окна#}
+{#    function openModal() {#}
+{#        modal.style.display = 'block';#}
+{#    }#}
+{##}
+{#    // Функция закрытия модального окна#}
+{#    function closeModal() {#}
+{#        modal.style.display = 'none';#}
+{#    }#}
+{##}
+{#    // Назначаем обработчики событий на кнопку открытия и закрытия модального окна#}
+{#    openModalButton.addEventListener('click', openModal);#}
+{#    closeModalButton.addEventListener('click', closeModal);#}
+{#    modal.addEventListener('click', function (event) {#}
+{#        if (event.target === modal) {#}
+{#            closeModal();#}
+{#        }#}
+{#    });#}
+{##}
+{#    // обработчик события на нажатие клавиши Escape для закрытия модального окна#}
+{#    document.addEventListener('keydown', function (event) {#}
+{#        if (event.key === 'Escape') {#}
+{#            closeModal();#}
+{#        }#}
+{#    });#}
+{#</script>#}
 
 <div id="subheader">
     <div class="cart">
@@ -91,9 +161,10 @@
     {% endblock %}
 </div>
 
+
 <footer>
     <p>&copy; 2006 Clothes repair</p>
 </footer>
-</body>
 
+</body>
 </html>

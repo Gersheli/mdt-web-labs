@@ -125,6 +125,11 @@ def review(request):
     return render(request, 'shop/reviews.html', {'form': form, 'reviews': reviews, 'current_user': current_user})
 
 
+def news_show(request, id):
+    post = get_object_or_404(Post, id=id)
+    return render(request, 'shop/news_show.html', {'post': post})
+
+
 def news(request):
     lst = Post.objects.all()
     return render(request, 'shop/news.html', context={'news_list': lst})

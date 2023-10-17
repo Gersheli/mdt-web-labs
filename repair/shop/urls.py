@@ -5,6 +5,7 @@ app_name = 'shop'
 
 urlpatterns = [
     path('news/', views.news),
+    path('news/news_show/<int:id>', views.news_show, name='news_show'),
     path('about/', views.about),
     path('policy/', views.policy),
     path('vacancies/', views.vacancies),
@@ -20,5 +21,4 @@ urlpatterns = [
     path('', views.usluga_list, name='usluga_list'),
     path('<str:usluga_genre_name>/', views.usluga_list,
          name='usluga_list_by_genre'),
-
 ]

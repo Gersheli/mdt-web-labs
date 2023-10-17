@@ -14,12 +14,13 @@
                     </p>
                     <img src="{{ post.image.url }}" , alt="post_image">
                     <br>
-
-                    <button type="button" class="news-item__button">
-                        ЧИТАТЬ ДАЛЕЕ
-                    </button>
-                    <hr>
                 </article>
+
+                <form method="get" action="news_show/{{ post.id }}">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">ЧИТАТЬ ДАЛЕЕ</button>
+                </form>
             {% endfor %}
         </div>
     </section>

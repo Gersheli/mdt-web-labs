@@ -1,51 +1,33 @@
 {% extends "shop/base.html" %}
 
 {% block content %}
+    <section class="coupons__section">
+        <div class="container">
+            <ul class="coupons__list d-flex flex-wrap">
+                <li class="coupon__item">
+                    <h2 class="coupon-item__title">СКИДКА15</h2>
+                    <p>Скидка 15% на ремонт обуви</p>
+                    <p>Срок действия: до 31 декабря 20XX</p>
+                </li>
 
-<header>
-    <img src="../media/static/ico.png" alt="Логотип Стильный Ремонт">
-    <h1>Промокоды и купоны</h1>
-</header>
+                <li class="coupon__item">
+                    <h2 class="coupon-item__title">КУПОН10</h2>
+                    <p>Дополнительная скидка 10% на ремонт одежды</p>
+                    <p>Срок действия: до 30 ноября 20XX</p>
+                </li>
 
-<!-- Список действующих промокодов -->
-<section id="active-promocodes">
-    <h2>Действующие промокоды</h2>
+                <li class="coupon__item">
+                    <h2 class="coupon-item__title">СПЕЦИАЛЬНЫЙ5</h2>
+                    <p>Скидка 5% на ремонт обуви (архив)</p>
+                    <p>Срок действия истек: 15 сентября 20XX</p>
+                </li>
 
-    <!-- Промокод №1 -->
-    <div class="promocode">
-        <h3>СКИДКА15</h3>
-        <p>Скидка 15% на ремонт обуви</p>
-        <p>Срок действия: до 31 декабря 20XX</p>
-    </div>
-
-    <!-- Промокод №2 -->
-    <div class="promocode">
-        <h3>КУПОН10</h3>
-        <p>Дополнительная скидка 10% на ремонт одежды</p>
-        <p>Срок действия: до 30 ноября 20XX</p>
-    </div>
-
-    <!-- Добавьте больше действующих промокодов -->
-</section>
-
-<!-- Список промокодов в архиве -->
-<section id="archived-promocodes">
-    <h2>Архив промокодов</h2>
-
-    <!-- Архивный промокод №1 -->
-    <div class="promocode archived">
-        <h3>СПЕЦИАЛЬНЫЙ5</h3>
-        <p>Скидка 5% на ремонт обуви (архив)</p>
-        <p>Срок действия истек: 15 сентября 20XX</p>
-    </div>
-
-    <!-- Архивный промокод №2 -->
-    <div class="promocode archived">
-        <h3>КОД20OFF</h3>
-        <p>Скидка 20% на ремонт одежды (архив)</p>
-        <p>Срок действия истек: 31 августа 20XX</p>
-    </div>
-
-</section>
-
+                <li class="coupon__item">
+                    <h2 class="coupon-item__title">КОД20OFF</h2>
+                    <p>Скидка 20% на ремонт одежды (архив)</p>
+                    <p>Срок действия истек: 31 августа 20XX</p>
+                </li>
+            </ul>
+        </div>
+    </section>
 {% endblock %}

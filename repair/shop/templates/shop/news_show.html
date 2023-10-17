@@ -1,0 +1,13 @@
+{% extends "shop/base.html" %}
+
+{% block content %}
+
+<section class="news-detail__section">
+    <div class="container">
+        <img src="{{ post.image.url }}" alt="{{ post.title }}">
+        <a href="{{ post.image.url }}" download>Скачать изображение новости</a>
+        <p class="news-detail__text">{{ post.description }}</p>
+    </div>
+</section>
+
+{% endblock %}

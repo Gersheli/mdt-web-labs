@@ -16,13 +16,11 @@
                 {% endfor %}
             </div>
 
-            {% if current_user.is_authenticated %}
-                <form method="post">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <button type="submit">Отправить</button>
-                </form>
-            {% endif %}
+            <form method="get" action="news_show.html">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">ЧИТАТЬ ДАЛЕЕ</button>
+            </form>
         </div>
     </section>
 {% endblock %}
