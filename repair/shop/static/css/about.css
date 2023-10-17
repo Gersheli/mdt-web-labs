@@ -2,11 +2,6 @@
     margin: 70px 30px;
 }
 
-body {
-    max-width: 1600px;
-    margin: 0 auto;
-}
-
 .info__title {
     text-transform: uppercase;
     font-size: 30px;
