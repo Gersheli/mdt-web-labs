@@ -23,11 +23,9 @@
 
 <body>
 
-{#    добавить время#}
-
 <div class="wrapper">
     <header class="header">
-        <a href="/" class="logo">Clothes repair</a>
+        <a href="/" class="header-brand">Clothes repair</a>
 
         <nav class="navbar">
             <ul class="navbar-menu">
@@ -57,6 +55,30 @@
     </header>
 </div>
 
+<section class="partners__section">
+    <div class="container">
+        <h2 class="partners__title">Наши партнеры</h2>
+        <div class="partners__list">
+            <a class="partners-list__item" href="#">
+                <img src="../../../media/merc.png" alt="mercedes" class="partners-item__img">
+                <div class="partners-item__subtitle">Mercedes</div>
+            </a>
+            <a class="partners-list__item" href="#">
+                <img src="../../../media/bmv.png" alt="bmw" class="partners-item__img">
+                <div class="partners-item__subtitle">BMW</div>
+            </a>
+            <a class="partners-list__item" href="#">
+                <img src="../../../media/chev.jpg" alt="chevrolet" class="partners-item__img">
+                <div class="partners-item__subtitle">Chevrolet</div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<p>Date <span id="date"></span></p>
+<p>Time <span id="time"></span></p>
+<p>Time zone <span id="zone"></span></p>
+
 <script>
     const today = new Date();
     const yyyy = today.getFullYear();
@@ -85,6 +107,53 @@
     document.getElementById('date').innerHTML = formattedToday;
     document.getElementById('time').innerHTML = time;
     document.getElementById('zone').innerHTML = tz;
+
+
+    function toggleUserInfo() {
+        var userInfo = document.getElementById('userInfo');
+        userInfo.style.display = userInfo.style.display === 'block' ? 'none' : 'block';
+    }
+
+    let menuBtn = document.querySelector('.user-toggle');
+    let menu = document.querySelector('.user-info__list');
+    let burgerMenu = document.querySelector('#burger-menu');
+    menuBtn.addEventListener('click', function () {
+        menu.classList.toggle('active');
+        menuBtn.classList.toggle('active');
+        burgerMenu.classList.toggle('active');
+    })
+
+
+    // Получаем ссылки на кнопку открытия модального окна и само модальное окно
+    const openModalButton = document.getElementById('openModalBtn');
+    const modal = document.getElementById('exampleModal');
+    const closeModalButton = document.getElementById('btn-close-modal');
+
+    // Функция открытия модального окна
+    function openModal() {
+        modal.style.display = 'block';
+    }
+
+    // Функция закрытия модального окна
+    function closeModal() {
+        modal.style.display = 'none';
+    }
+
+    // Назначаем обработчики событий на кнопку открытия и закрытия модального окна
+    openModalButton.addEventListener('click', openModal);
+    closeModalButton.addEventListener('click', closeModal);
+    modal.addEventListener('click', function (event) {
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
+
+    // обработчик события на нажатие клавиши Escape для закрытия модального окна
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+            closeModal();
+        }
+    });
 </script>
 
 <div id="subheader">

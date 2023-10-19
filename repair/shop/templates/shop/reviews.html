@@ -16,11 +16,13 @@
                 {% endfor %}
             </div>
 
+        {% if current_user.is_authenticated %}
             <form method="get" action="news_show.html">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <button type="submit">ЧИТАТЬ ДАЛЕЕ</button>
+                <button class="btn transparent-btn" type="submit">ОТПРАВИТЬ</button>
             </form>
+        {% endif %}
         </div>
     </section>
 {% endblock %}
